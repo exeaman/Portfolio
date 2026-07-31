@@ -1,0 +1,52 @@
+---
+import { ArrowRight, Download } from "lucide-react";
+
+import Button from "@components/common/Button.astro";
+import Container from "@components/common/Container.astro";
+import Marquee from "@components/common/Marquee.astro";
+import Section from "@components/common/Section.astro";
+
+import { hero } from "@data/hero";
+import { technologies } from "@data/technologies";
+---
+
+<Section class="flex min-h-[calc(100vh-5rem)] items-center">
+    <Container class="max-w-5xl">
+        <div class="mx-auto flex max-w-4xl flex-col items-center text-center">
+
+            <p class="hero__greeting text-lg font-medium tracking-tight text-zinc-400">
+                {hero.greeting}
+            </p>
+
+            <h1 class="hero__title mt-5 text-5xl font-bold leading-[1.02] tracking-[-0.05em] md:text-7xl lg:text-8xl">
+                {hero.title[0]}
+                <br />
+                <span class="text-zinc-300">{hero.title[1]}</span>
+            </h1>
+
+            <p class="hero__description mx-auto mt-8 max-w-2xl text-xl leading-8 text-zinc-400">
+                {hero.description}
+            </p>
+
+            <div class="hero__actions mt-12 flex flex-wrap justify-center gap-5">
+                <Button href={hero.actions.primary.href}>
+                    {hero.actions.primary.label}
+                    <ArrowRight slot="icon" size={18} />
+                </Button>
+
+                <Button
+                        variant="secondary"
+                        href={hero.actions.secondary.href}
+                >
+                    {hero.actions.secondary.label}
+                    <Download slot="icon" size={18} />
+                </Button>
+            </div>
+
+            <div class="hero__marquee mt-16 w-full">
+                <Marquee items={technologies} />
+            </div>
+
+        </div>
+    </Container>
+</Section>

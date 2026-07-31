@@ -1,0 +1,20 @@
+export const technologies = [
+    "Java",
+    "Spring Boot",
+    "Kafka",
+    "Redis",
+    "PostgreSQL",
+    "MySQL",
+    "Docker",
+    "AWS",
+    "React",
+    "TypeScript",
+    "Astro",
+    "Tailwind CSS",
+    "Git",
+    "Linux",
+    "Spring Security",
+    "Hibernate",
+    "REST API",
+    "Microservices"
+];

@@ -1,0 +1,42 @@
+---
+import Container from "@components/common/Container.astro";
+import FeatureCard from "@components/common/FeatureCard.astro";
+import Section from "@components/common/Section.astro";
+
+import { whatIBuild } from "@data/what-i-build";
+---
+
+<Section id="about">
+    <Container>
+
+        <div class="mx-auto max-w-3xl text-center">
+
+            <p class="text-sm font-medium uppercase tracking-[0.35em] text-zinc-500">
+                What I Build
+            </p>
+
+            <h2 class="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+                Engineering products,
+                <br />
+                not just writing code.
+            </h2>
+
+            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
+                I enjoy solving engineering problems across backend systems,
+                distributed architecture and modern web development.
+            </p>
+
+        </div>
+
+        <div class="mt-20 grid gap-8 lg:grid-cols-3">
+
+            {
+                whatIBuild.map((item) => (
+                        <FeatureCard {...item} />
+                ))
+            }
+
+        </div>
+
+    </Container>
+</Section>

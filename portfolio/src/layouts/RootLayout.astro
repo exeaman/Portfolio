@@ -1,0 +1,50 @@
+---
+import Background from "../components/common/Background.astro";
+import "../styles/globals.css";
+import Navbar from "@layouts/Navbar.astro";
+
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = "Aman Jaiswal",
+    description = "Software Engineer",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>{title}</title>
+
+    <meta
+            name="description"
+            content={description}
+    />
+
+    <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/favicon.svg"
+    />
+</head>
+
+<body>
+<Background />
+<Navbar />
+
+<main class="pt-28">
+    <slot />
+</main>
+</body>
+</html>

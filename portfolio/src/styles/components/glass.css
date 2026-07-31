@@ -1,0 +1,106 @@
+.glass {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--glass-bg);
+
+    border: 1px solid var(--glass-border);
+
+    backdrop-filter: blur(var(--blur-glass));
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+            transform var(--duration-normal) var(--ease),
+            background var(--duration-normal) var(--ease),
+            border-color var(--duration-normal) var(--ease),
+            box-shadow var(--duration-normal) var(--ease);
+}
+.glass::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    pointer-events: none;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.18),
+                    rgba(255,255,255,.05) 30%,
+                    transparent 70%
+            );
+}
+.glass::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    pointer-events: none;
+
+    box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.08);
+
+    opacity: .8;
+}
+.glass:hover {
+
+    transform: translateY(-2px);
+
+    background: var(--glass-bg-hover);
+
+    border-color: var(--glass-border-hover);
+
+    box-shadow: var(--shadow-md);
+}
+
+.glass[data-variant="navbar"] {
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.08),
+                    rgba(255, 255, 255, 0.03)
+            ),
+            rgba(18, 18, 22, 0.32);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+
+    box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.12),
+            0 12px 40px rgba(0,0,0,.18);
+}
+.glass[data-variant="navbar"]::before {
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.22),
+                    rgba(255,255,255,.06) 35%,
+                    transparent 80%
+            );
+}
+
+.glass[data-variant="hero"] {
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.08),
+                    rgba(255,255,255,.04)
+            );
+
+    border-color:
+            rgba(255,255,255,.14);
+}

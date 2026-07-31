@@ -1,0 +1,31 @@
+---
+interface Props {
+    items: string[];
+    reverse?: boolean;
+    speed?: number;
+}
+
+const {
+    items,
+    reverse = false,
+    speed = 35
+} = Astro.props;
+
+const marqueeItems = [...items, ...items];
+---
+
+<div class="marquee">
+    <div
+            class:list={[
+                "marquee__track",
+                reverse && "marquee__track--reverse"
+            ]}
+            style={`--duration:${speed}s`}
+    >
+        {
+            marqueeItems.map((item) => (
+                    <span class="badge">{item}</span>
+            ))
+        }
+    </div>
+</div>
